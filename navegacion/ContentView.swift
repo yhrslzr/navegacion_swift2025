@@ -9,13 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack{
+            Text("Bienvenido a la Nintendo Store")
+            
+            Spacer()
+            NavigationStack{
+                NavigationLink(destination: ProductView()){
+                    ItemRowView()
+                }
+                Spacer()
+                Text("Desarrollado por: Yahir Slzr 🪼")
+                
+            }
         }
-        .padding()
     }
 }
 
