@@ -10,21 +10,18 @@ import SwiftUI
 struct ItemDetailsView: View {
     
     @Environment(\.dismiss) var dismiss
-    
-    /*
-     var name: String
-     var price: Float
-     var priceText: String {
-     let formatter = NumberFormatter()
-     formatter.numberStyle = .decimal
-     if let formatted = formatter.string(from: NSNumber(value: price)) {
-     return formatted
-     }else{
-     return String(price)
-     }
-     }
-     */
-    
+    var name: String
+    var price: Float
+    var priceText: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        if let formatted = formatter.string(from: NSNumber(value: price)) {
+            return formatted
+        }else{
+            return String(price)
+        }
+    }
+
     var body: some View {
         ScrollView(){
             VStack(alignment: .leading, spacing: 20){
@@ -33,13 +30,13 @@ struct ItemDetailsView: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(height: 400)
                     .cornerRadius(15)
-                Text("MacBook Pro De 13,6'' Chip M2 512 Gb Ssd Gris Espacial - Distribuidor autorizado")
+                Text(name)
                     .font(.system(.headline, design: .rounded))
                     .fontWeight(.bold)
                     .padding()
                     .multilineTextAlignment(.center)
                 HStack{
-                    Text("15,498").font(.title)
+                    Text(priceText).font(.title)
                     Text("16% OFF").font(.callout)
                         .fontWeight(.semibold)
                         .foregroundColor(.green)
@@ -75,10 +72,16 @@ Con su espectacular pantalla Retina, cámara FaceTime HD y micrófonos con calid
     }
 }
 
-struct ItemDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack{
-            ItemDetailsView()
-        }
+//struct ItemDetailsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack{
+//            ItemDetailsView(name: "MacBook Pro De 13,6'' Chip M2 512 Gb Ssd Gris Espacial - Distribuidor autorizado", price: 15,498)
+//        }
+//    }
+//}
+
+#Preview {
+    NavigationStack{
+        ItemDetailsView(name: "MacBook Pro De 13,6'' Chip M2 512 Gb Ssd Gris Espacial - Distribuidor autorizado", price: 15498)
     }
 }
