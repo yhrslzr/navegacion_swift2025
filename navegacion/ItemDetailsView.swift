@@ -9,31 +9,22 @@ import SwiftUI
 
 struct ItemDetailsView: View {
     
-    //@Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss
     
-    /* var name: String
-     
+    /*
+     var name: String
      var price: Float
-     
      var priceText: String {
-     
      let formatter = NumberFormatter()
-     
      formatter.numberStyle = .decimal
-     
      if let formatted = formatter.string(from: NSNumber(value: price)) {
-     
      return formatted
-     
      }else{
-     
      return String(price)
-     
      }
-     
      }
-     
      */
+    
     var body: some View {
         ScrollView(){
             VStack(alignment: .leading, spacing: 20){
@@ -68,32 +59,22 @@ Con su espectacular pantalla Retina, cámara FaceTime HD y micrófonos con calid
                 .foregroundColor(Color.secondary)
             }.padding()
         }
-        
-        /*.navigationTitle("Detalles")
-         
-         .navigationBarTitleDisplayMode(.large)
-         
-         .navigationBarBackButtonHidden(true)
-         
-         .toolbar {
-         
-         ToolbarItem(placement: .navigationBarLeading) {
-         
-         Button { dismiss() } label: {
-         
-         Image(systemName:"arrow.backward.circle.fill")
-         
-         .foregroundColor(.yellow)
-         
-         }
-         
-         }
-         
-         }
-         
-         */
+        .navigationTitle("Detalles")
+        .navigationBarTitleDisplayMode(.large)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName:"arrow.backward.circle.fill")
+                        .foregroundColor(.yellow)
+                }
+            }
+        }
     }
 }
+
 struct ItemDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
